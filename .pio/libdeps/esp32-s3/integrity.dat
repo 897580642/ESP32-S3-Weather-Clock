@@ -1,0 +1,13 @@
+ArduinoJson
+WebServer
+bodmer/TFT_eSPI@^2.5.43
+FS
+Update
+lvgl
+WiFiClientSecure
+SPIFFS
+DNSServer
+WiFiManager
+Wire
+WiFi
+TFT_Touch
