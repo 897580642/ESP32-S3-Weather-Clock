@@ -1,25 +1,27 @@
-# ESP32-Weather-Clock
-ESP32 Weather Clock based on LVGL （Arduino）.
+# ESP32-S3-Weather-Clock
+ESP32-S3 Weather Clock based on LVGL （Arduino）.
 
 
 Ardunio （PlatformIO）:
-PLATFORM: Espressif 32 (2.0.0) > Espressif ESP32 Dev Module
-HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
-DEBUG: Current (esp-prog) External (esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PLATFORM: Espressif 32 (6.5.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash
+DEBUG: Current (esp-builtin) On-board (esp-builtin) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
 PACKAGES:
- - framework-arduinoespressif32 3.10004.200129 (1.0.4)
- - tool-esptoolpy 1.20600.0 (2.6.0)
- - tool-mkspiffs 2.230.0 (2.30)
- - toolchain-xtensa32 2.50200.80 (5.2.0)
+ - framework-arduinoespressif32 @ 3.20014.231204 (2.0.14)
+ - tool-esptoolpy @ 1.40501.0 (4.5.1)
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
   
  
 Note：
+
+Espressif 32版本不要选的太高，不兼容的话烧写进去会无限重启...
 
 基于LVGL （Arduino）
 
 硬件：ESP32S3 + LCD（ILI9341 SPI屏）
 
-支持心知天气和和风天气获取天气数据（需要自己申请账号），支持WIFI配网（默认WIFI热点为Clock）
+支持心知天气和和风天气获取天气数据（需要自己申请账号），支持WIFI配网（）
 
  /* 和风天气 - https://dev.heweather.com */
 
@@ -36,7 +38,7 @@ SENIVERSE_LOCATION = "Huicheng";//城市列表 https://docs.seniverse.com/api/st
 
 硬件接线：
 Location:   .pio/libdeps/esp32-s3/TFT_eSPI/User_Setup.h
-vcc接3.3v,GND接GND，LED接5v/3.3v就完成了，暂未实现触屏效果
+vcc接3.3v,GND接GND，LED接5v/3.3v就完成了，一共连接8个PIN脚 （暂未实现触屏效果）
 
 WIFI配置：
 src/main.cpp里wifiManager.autoConnect("","")里添加wifi名字和密码
